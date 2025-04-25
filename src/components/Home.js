@@ -1,4 +1,5 @@
 import { useCart } from "../context/Context";  
+import Filters from "./Filters"; 
 import SingleProduct from "./SingleProduct";
 
 const Home = () => {
