@@ -1,12 +1,11 @@
-import { CartState } from "../context/Context";
-import Filters from "./Filters";
+import { useCart } from "../context/Context";  
 import SingleProduct from "./SingleProduct";
 
 const Home = () => {
   const {
     state: { products },
     productState: { sort, byStock, byFastDelivery, byRating, searchQuery },
-  } = CartState();
+  } = useCart();  
 
   const transformProducts = () => {
     let sortedProducts = products;

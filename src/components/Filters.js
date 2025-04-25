@@ -1,12 +1,12 @@
 import { Button, Form } from "react-bootstrap";
-import { CartState } from "../context/Context";
+import { useCart } from "../context/Context";  
 import Rating from "./Rating";
 
 const Filters = () => {
   const {
     productDispatch,
     productState: { byStock, byFastDelivery, sort, byRating },
-  } = CartState();
+  } = useCart(); 
 
   // make state for rating
 

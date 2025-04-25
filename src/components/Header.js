@@ -10,7 +10,7 @@ import {
   Navbar,
 } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
-import { CartState } from "../context/Context";
+import { useCart } from "../context/Context";  
 import "./styles.css";
 
 const Header = () => {
@@ -18,13 +18,13 @@ const Header = () => {
     state: { cart },
     dispatch,
     productDispatch,
-  } = CartState();
+  } = useCart();  // Updated hook usage
 
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
       <Container>
         <Navbar.Brand>
-          <Link to="/">Shopping Cart</Link>
+          <Link to="/">Nafuu Store</Link>
         </Navbar.Brand>
         {useLocation().pathname.split("/")[1] !== "cart" && (
           <Navbar.Text className="search">

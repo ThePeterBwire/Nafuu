@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Form, Image, ListGroup, Row } from "react-bootstrap";
 import { AiFillDelete } from "react-icons/ai";
-import { CartState } from "../context/Context";
+import { useCart } from "../context/Context";  
 import Rating from "./Rating";
 
 const Cart = () => {
   const {
     state: { cart },
     dispatch,
-  } = CartState();
+  } = useCart();  // Updated hook usage
   const [total, setTotal] = useState();
 
   useEffect(() => {
@@ -16,6 +16,7 @@ const Cart = () => {
       cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
     );
   }, [cart]);
+
 
   return (
     <div className="home">
