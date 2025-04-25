@@ -37,8 +37,14 @@ const Context = ({ children }) => {
   );
 };
 
-export const CartState = () => {
-  return useContext(Cart);
-};
-
-export default Context;
+// Change the CartState export to be more explicit
+export const useCart = () => {
+    const context = useContext(Cart);
+    if (!context) {
+      throw new Error('useCart must be used within a CartProvider');
+    }
+    return context;
+  };
+  
+  // Rename default export for clarity
+  export const CartProvider = Context;
